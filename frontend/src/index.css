@@ -1,0 +1,10 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+

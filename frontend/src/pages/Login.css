@@ -1,0 +1,61 @@
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(70deg, #3c3c3d73, #000000ce);
+  background-size: 200% 200%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+.login-container {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 30px;
+  border-radius: 8px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(30, 30, 30, 0.7);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.login-container input {
+  width: 470px;
+  height: 44px;          /* altura do input */
+  font-size: 16px;       /* texto maior */
+  padding: 0 12px;
+  border-radius: 6px;
+  background: rgba(30, 30, 30, 0.7);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.login-container button {
+  width: 200px;
+  height: 44px;
+  font-size: 18px;
+  margin-top: 8px;
+  border-radius: 6px;
+  background: rgba(30, 30, 30, 0.7);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.login-container h1 {
+  font-size: 50px;
+  padding-left: 170px;
+  padding-right: 50px;
+}
