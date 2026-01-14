@@ -8,5 +8,6 @@ namespace SistemaDeTarefas.Models
         public string? Name { get; set; }
         public string? Email { get; set; }
         public StatusTarefa Status { get; set; }
+        public string Senha { get; set; }
     }
 }

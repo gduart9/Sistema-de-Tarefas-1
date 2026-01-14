@@ -1,0 +1,22 @@
+# Visual Studio
+.vs/
+
+# Build
+bin/
+obj/
+
+# .NET
+*.dll
+*.exe
+*.pdb
+
+# Logs
+*.log
+
+# Node / Frontend
+node_modules/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db

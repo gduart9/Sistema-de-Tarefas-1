@@ -62,5 +62,11 @@ namespace SistemaDeTarefas.Repositorios
             await _dbContext.SaveChangesAsync();
             return true;
         }
+        public async Task<UsuarioModel> BuscarPorEmailESenha(string email, string senha)
+        {
+            return await _dbContext.Usuarios
+                .FirstOrDefaultAsync(u => u.Email == email && u.Senha == senha);
+        }
+
     }
 }

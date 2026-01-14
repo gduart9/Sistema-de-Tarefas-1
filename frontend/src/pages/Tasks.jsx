@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import api from "../services/api";
+import { api } from "../services/api";
 import "./Tasks.css";
 
 import { AuthContext } from "../contexts/AuthContext";
@@ -16,11 +16,11 @@ export default function Tasks() {
   const [apagandoId, setApagandoId] = useState(null);
   const [novaId, setNovaId] = useState(null);
 
-  const { signOut } = useContext(AuthContext);
+  const { signOut, user } = useContext(AuthContext);
   const navigate = useNavigate();
 
   async function carregarTarefas() {
-    const response = await api.get("/api/Tarefa");
+    const response = await api.get("/Tarefa");
     setTasks(response.data);
   }
 
@@ -30,17 +30,17 @@ export default function Tasks() {
 
   function logout() {
     signOut();
-    navigate("/login");
+    navigate("/");
   }
 
   async function criarTarefa() {
     if (!titulo.trim()) return;
 
-    const response = await api.post("/api/Tarefa", {
+    const response = await api.post("/Tarefa", {
       name: titulo,
       descricao: "Criada pelo frontend",
       status: 0,
-      usuarioId: 1
+      usuarioId: user.id
     });
 
     setNovaId(response.data.id);
@@ -58,7 +58,7 @@ export default function Tasks() {
   async function salvarEdicao(task) {
     if (!tituloEditado.trim()) return;
 
-    await api.put(`/api/Tarefa/${task.id}`, {
+    await api.put(`/Tarefa/${task.id}`, {
       ...task,
       name: tituloEditado
     });
@@ -72,7 +72,7 @@ export default function Tasks() {
   }
 
   async function alternarStatus(task) {
-    await api.put(`/api/Tarefa/${task.id}`, {
+    await api.put(`/Tarefa/${task.id}`, {
       ...task,
       status: task.status === 0 ? 1 : 0
     });
@@ -84,7 +84,7 @@ export default function Tasks() {
     setApagandoId(id);
 
     setTimeout(async () => {
-      await api.delete(`/api/Tarefa/${id}`);
+      await api.delete(`/Tarefa/${id}`);
       setApagandoId(null);
       carregarTarefas();
     }, 300);
@@ -93,11 +93,13 @@ export default function Tasks() {
   return (
     <div className="tasks-page">
       <header className="tasks-header">
+        <span>
+        Olá, {user?.name.charAt(0).toUpperCase() + user?.name.slice(1)} 👋
+        </span>
         <button className="logout-btn" onClick={logout}>Sair</button>
       </header>
 
       <main className="tasks-container">
-        {/* NOVA TAREFA */}
         <section className="card">
           <h2>Nova tarefa</h2>
 

@@ -50,5 +50,20 @@ namespace SistemaDeTarefas.Controllers
             bool apagado = await _usuarioRepositorio.Apagar(id);
             return Ok(apagado);
         }
+
+        [HttpPost("login")]
+        public async Task<ActionResult<UsuarioModel>> Login([FromBody] LoginModel login)
+        {
+            var usuario = await _usuarioRepositorio
+                .BuscarPorEmailESenha(login.Email, login.Senha);
+
+            if (usuario == null)
+            {
+                return Unauthorized("Email ou senha inválidos");
+            }
+
+            return Ok(usuario);
+        }
+
     }
 }

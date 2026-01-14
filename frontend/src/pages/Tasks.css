@@ -17,8 +17,14 @@
 
 .tasks-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 20px 40px;
+}
+
+.tasks-header span {
+  font-size: 1.1rem;
+  margin-right: 50px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .logout-btn {
