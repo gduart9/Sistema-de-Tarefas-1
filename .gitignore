@@ -5,18 +5,14 @@
 bin/
 obj/
 
-# .NET
-*.dll
-*.exe
-*.pdb
-
 # Logs
 *.log
 
-# Node / Frontend
+# Executáveis
+*.exe
+*.dll
+*.pdb
+
+# Node
 node_modules/
 dist/
-
-# OS
-.DS_Store
-Thumbs.db
